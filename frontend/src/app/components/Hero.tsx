@@ -57,9 +57,9 @@ export function Hero() {
             Front-End Developer with 8 years of Graphic Design experience. I build clean, fast, and user-friendly websites.
           </p>
 
-          {/* Role badge - Open for work */}
+          {/* Role badge - Open for work - UPDATED */}
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-10 text-sm" style={{ background: 'rgba(122,178,211,0.08)', border: '1px solid rgba(122,178,211,0.2)', color: '#a8d4f0' }}>
-            💼 Open for Front-End Developer roles (Remote)
+            💼 Open for Front-End Developer roles (Onsite and Remote)
           </div>
 
           {/* CTA Buttons */}
