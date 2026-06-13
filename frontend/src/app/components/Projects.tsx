@@ -24,15 +24,18 @@ const projects = [
   {
     title: 'Pennywise · Fintech App',
     year: '2025 • FULL-STACK FINTECH',
-    description: 'Full-stack fintech app with user authentication, dashboard, and secure API. Frontend in React, backend in Node.js with TypeScript.',
+    description: 'Teen-focused financial literacy platform with budgeting tools, virtual cards, investment education, real-time transactions, and complete Supabase backend.',
     highlights: [
-      'JWT authentication with bcrypt password hashing',
-      'TypeScript backend for type safety',
-      'Dark mode toggle',
-      'Responsive design with Tailwind CSS',
+      'Supabase authentication (Email/Password, Row Level Security)',
+      'Real-time PostgreSQL database for transactions',
+      'Virtual cards & transaction tracking dashboard',
+      'Budgeting tools & financial education resources',
+      'Investment insights & savings goal tracker',
+      'Dark mode & fully responsive design',
+      'Deployed on Vercel with CI/CD',
     ],
     image: '/images/pennywise.png',
-    tags: ['React 18', 'Node.js', 'Express', 'TypeScript', 'JWT', 'Tailwind CSS'],
+    tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vercel', 'PostgreSQL'],
     github: 'https://github.com/SanaHameed2/pennywise-fintech-app',
     live: 'https://pennywise-fintech-app.vercel.app/',
     size: 'small',
@@ -67,7 +70,7 @@ const projects = [
     tags: ['HTML5', 'CSS3', 'JavaScript'],
     github: 'https://github.com/SanaHameed2/mathlings',
     live: 'https://sana-hameed2.github.io/mathlings/',
-    size: 'large',  // ✅ Mathlings is LARGE now
+    size: 'large',
   },
   {
     title: 'Nexcent · Business Solutions',
