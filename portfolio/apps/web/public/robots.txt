@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Sitemap: https://sana-portfolio-weld.vercel.app/sitemap.xml
+
+# Crawl delay for better performance
+Crawl-delay: 1
+
+# Allow Googlebot to crawl everything
+User-agent: Googlebot
+Allow: /
+
+# Allow Bingbot to crawl everything
+User-agent: Bingbot
+Allow: /

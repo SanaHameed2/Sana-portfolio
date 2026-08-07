@@ -1,0 +1,39 @@
+{
+  "name": "sana-hameed-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "build": "npm run build --workspace=apps/web && npm run build --workspace=apps/api",
+    "typecheck": "npm run typecheck --workspace=apps/web",
+    "lint": "npm run lint --workspace=apps/web && npm run lint --workspace=apps/api",
+    "format": "prettier --config packages/config/prettier.config.json --write \"apps/**/*.{ts,tsx,js,css,md}\"",
+    "format:check": "prettier --config packages/config/prettier.config.json --check \"apps/**/*.{ts,tsx,js,css,md}\"",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:lighthouse": "playwright test tests/lighthouse.spec.js",
+    "test:lighthouse:report": "node scripts/lighthouse-report.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "autoprefixer": "^10.5.4",
+    "chrome-launcher": "^1.1.2",
+    "lighthouse": "^12.4.0",
+    "postcss": "^8.5.25",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}

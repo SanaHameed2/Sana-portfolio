@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* 1. Ensure absolute mobile stability and prevent horizontal scrolling */
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    @apply bg-background text-neutral-50;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  ::selection {
+    @apply bg-primary text-white;
+  }
+
+  /* 2. Fluid typography scaling for mobile screens */
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.75rem);
+    line-height: 1.25;
+  }
+
+  p {
+    font-size: clamp(0.925rem, 1.5vw, 1.125rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]
+      focus:rounded-button focus:bg-primary focus:px-4 focus:py-2 focus:text-white;
+  }
+
+  .border-border {
+    @apply border border-ink-800;
+  }
+
+  .text-small {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  /* 3. Reusable Responsive Grid Utilities for Cards & Projects */
+  .responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020B17;
+}
+::-webkit-scrollbar-thumb {
+  background: #2563EB;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
