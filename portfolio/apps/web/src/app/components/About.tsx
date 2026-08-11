@@ -50,34 +50,56 @@ export function About() {
   const reduceMotion = useReducedMotion();
 
   const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: reduceMotion ? 0 : 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-80px" },
+    initial: {
+      opacity: 0,
+      y: reduceMotion ? 0 : 18,
+    },
+    whileInView: {
+      opacity: 1,
+      y: 0,
+    },
+    viewport: {
+      once: true,
+      margin: "-60px",
+    },
     transition: {
       duration: reduceMotion ? 0 : 0.4,
       delay,
+      ease: "easeOut",
     },
   });
 
   return (
-    <section className="relative overflow-hidden">
-      {/* Ambient background — decorative only */}
-
-      <div className="relative mx-auto max-w-container px-5 py-10 sm:px-8 sm:py-14 lg:py-20">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="relative overflow-hidden"
+    >
+      <div className="mx-auto max-w-container px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         {/* Intro */}
-        <motion.div {...fadeUp()} className="max-w-prose">
-          <p className="text-small font-medium uppercase tracking-[0.25em] text-primary">
+        <motion.div {...fadeUp()} className="max-w-3xl">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary sm:text-sm sm:tracking-[0.25em]">
             About
           </p>
 
           <h2
             id="about-heading"
-            className="mt-3 text-3xl font-bold leading-tight text-neutral-50 sm:mt-4 sm:text-4xl lg:text-5xl"
+            className="
+              mt-3
+              max-w-2xl
+              text-[clamp(2rem,8vw,3.75rem)]
+              font-bold
+              leading-[1.05]
+              tracking-tight
+              text-neutral-50
+              sm:mt-4
+            "
           >
-            Design experience. Full stack expertise.
+            Design experience.
+            <br className="hidden sm:block" /> Full stack expertise.
           </h2>
 
-          <p className="mt-4 text-base leading-relaxed text-neutral-200 sm:mt-6 sm:text-lg">
+          <p className="mt-4 max-w-2xl text-[15px] leading-7 text-neutral-300 sm:mt-6 sm:text-lg sm:leading-8">
             With 8+ years in graphic design and 2+ years in full stack
             development, I bridge design and code. I've worked with 40+
             clients across industries, building responsive applications
@@ -85,90 +107,170 @@ export function About() {
           </p>
         </motion.div>
 
-        {/* Main content */}
-        <div className="mt-10 grid gap-8 lg:mt-16 lg:grid-cols-12 lg:gap-8">
+        {/* Main Content */}
+        <div
+          className="
+            mt-10
+            grid
+            gap-6
+            sm:mt-12
+            sm:gap-8
+            lg:mt-16
+            lg:grid-cols-12
+            lg:items-start
+          "
+        >
           {/* Highlights */}
           <motion.div
-            {...fadeUp(reduceMotion ? 0 : 0.1)}
-            className="space-y-4 lg:col-span-7 lg:space-y-6"
+            {...fadeUp(reduceMotion ? 0 : 0.08)}
+            className="space-y-4 lg:col-span-7"
           >
             {highlights.map((item, index) => (
-              <div
+              <article
                 key={item.title}
-                className="rounded-2xl border border-ink-800 bg-[#061321]/60 p-5 backdrop-blur-xl transition-colors duration-200 hover:border-neutral-600 sm:p-8"
+                className="
+                  rounded-2xl
+                  border
+                  border-ink-800
+                  bg-[#061321]/60
+                  p-5
+                  transition-colors
+                  duration-200
+                  hover:border-neutral-700
+                  sm:p-7
+                  lg:p-8
+                "
               >
-                <div className="flex items-start gap-3 sm:gap-5">
+                <div className="flex items-start gap-4 sm:gap-5">
+                  {/* Number */}
                   <div
                     aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 font-mono text-xs font-semibold text-primary sm:h-12 sm:w-12 sm:rounded-xl sm:text-sm"
+                    className="
+                      flex
+                      h-9
+                      w-9
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-lg
+                      border
+                      border-primary/25
+                      bg-primary/10
+                      font-mono
+                      text-[11px]
+                      font-semibold
+                      text-primary
+                      sm:h-11
+                      sm:w-11
+                      sm:rounded-xl
+                      sm:text-xs
+                    "
                   >
-                    0{index + 1}
+                    {String(index + 1).padStart(2, "0")}
                   </div>
 
                   <div className="min-w-0">
-                    <h3 className="text-lg font-bold text-neutral-50 sm:text-xl">
+                    <h3 className="text-base font-semibold leading-snug text-neutral-50 sm:text-xl">
                       {item.title}
                     </h3>
 
-                    <p className="mt-2 text-sm leading-relaxed text-neutral-300 sm:text-base">
+                    <p className="mt-2.5 text-sm leading-6 text-neutral-300 sm:mt-3 sm:text-base sm:leading-7">
                       {item.description}
                     </p>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </motion.div>
 
           {/* Summary */}
           <motion.div
-            {...fadeUp(reduceMotion ? 0 : 0.1)}
+            {...fadeUp(reduceMotion ? 0 : 0.12)}
             className="lg:col-span-5"
           >
-            <div className="rounded-2xl border border-ink-800 bg-[#061321]/60 p-5 backdrop-blur-xl sm:p-8 lg:sticky lg:top-28">
-              <p className="text-small font-medium uppercase tracking-[0.25em] text-primary">
+            <div
+              className="
+                rounded-2xl
+                border
+                border-ink-800
+                bg-[#061321]/60
+                p-5
+                sm:p-7
+                lg:sticky
+                lg:top-28
+                lg:p-8
+              "
+            >
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary sm:text-sm sm:tracking-[0.25em]">
                 Currently working with
               </p>
 
-              <h3 className="mt-2 text-lg font-bold text-neutral-50 sm:mt-3 sm:text-xl">
+              <h3 className="mt-2.5 text-lg font-semibold leading-snug text-neutral-50 sm:mt-3 sm:text-xl">
                 Full stack development with a design background
               </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-neutral-300 sm:mt-4 sm:text-base">
-                My design experience helps me understand UX and user
-                behavior, while my full stack skills let me build complete
-                applications from database to interface.
+              <p className="mt-3 text-sm leading-6 text-neutral-300 sm:mt-4 sm:text-base sm:leading-7">
+                My design experience helps me understand UX and user behavior,
+                while my full stack skills let me build complete applications
+                from database to interface.
               </p>
 
               {/* Technologies */}
-              <ul
-                className="mt-5 flex flex-wrap gap-2 sm:mt-6 sm:gap-2.5"
-                aria-label="Technologies"
-              >
-                {technologies.map((tech) => (
-                  <li
-                    key={tech}
-                    className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs text-neutral-200 sm:px-3.5 sm:text-small"
-                  >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-5 sm:mt-6">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                  Technologies
+                </p>
 
-              <div className="my-6 h-px bg-ink-800 sm:my-8" />
+                <ul
+                  className="mt-3 flex flex-wrap gap-2"
+                  aria-label="Technologies"
+                >
+                  {technologies.map((tech) => (
+                    <li
+                      key={tech}
+                      className="
+                        rounded-full
+                        border
+                        border-primary/20
+                        bg-primary/5
+                        px-2.5
+                        py-1.5
+                        text-[11px]
+                        leading-none
+                        text-neutral-300
+                        sm:px-3
+                        sm:text-xs
+                      "
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="my-6 h-px bg-ink-800 sm:my-7" />
 
               {/* Focus */}
-              <p className="text-small font-medium uppercase tracking-[0.25em] text-primary">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary sm:text-sm sm:tracking-[0.25em]">
                 Focus areas
               </p>
 
-              <ul className="mt-3 space-y-2 sm:mt-4 sm:space-y-3">
+              <ul className="mt-3 space-y-2.5 sm:mt-4 sm:space-y-3">
                 {focusAreas.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                      className="
+                        mt-[0.45rem]
+                        h-1.5
+                        w-1.5
+                        shrink-0
+                        rounded-full
+                        bg-primary
+                      "
                       aria-hidden="true"
                     />
-                    <span className="text-sm text-neutral-200 sm:text-base">
+
+                    <span className="text-sm leading-5 text-neutral-200 sm:text-base sm:leading-6">
                       {item}
                     </span>
                   </li>
@@ -176,14 +278,34 @@ export function About() {
               </ul>
 
               {/* Stats */}
-              <dl className="mt-6 grid grid-cols-3 gap-2 rounded-xl border border-ink-800 bg-black/40 p-4 sm:mt-8 sm:gap-3 sm:p-5">
+              <dl
+                className="
+                  mt-6
+                  grid
+                  grid-cols-3
+                  divide-x
+                  divide-ink-800
+                  rounded-xl
+                  border
+                  border-ink-800
+                  bg-black/30
+                  px-2
+                  py-4
+                  sm:mt-8
+                  sm:px-3
+                  sm:py-5
+                "
+              >
                 {stats.map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <dd className="font-mono text-lg font-bold text-neutral-50 sm:text-2xl">
+                  <div
+                    key={stat.label}
+                    className="min-w-0 px-2 text-center sm:px-3"
+                  >
+                    <dd className="font-mono text-lg font-bold leading-none text-neutral-50 sm:text-2xl">
                       {stat.value}
                     </dd>
 
-                    <dt className="mt-1 text-[10px] leading-tight text-neutral-400 sm:text-xs">
+                    <dt className="mx-auto mt-1.5 max-w-[80px] text-[9px] leading-tight text-neutral-500 sm:max-w-none sm:text-xs">
                       {stat.label}
                     </dt>
                   </div>
