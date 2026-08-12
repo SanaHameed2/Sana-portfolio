@@ -14,8 +14,16 @@ export default defineConfig({
     exclude: ['framer-motion'],
   },
   server: {
+    port: 5173,
     hmr: {
       overlay: false,
+    },
+    proxy: {
+      '/api': {
+        target: 'https://sana-portfolio-weld.vercel.app', // Apni live Vercel domain yahan set kar den
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
   esbuild: {

@@ -1,6 +1,8 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function escapeHtml(value) {
+function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -9,7 +11,7 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
-export default async function handler(req, res) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({
       success: false,
@@ -17,7 +19,11 @@ export default async function handler(req, res) {
     });
   }
 
-  const { name, email, message } = req.body ?? {};
+  const { name, email, message } = (req.body ?? {}) as {
+    name?: string;
+    email?: string;
+    message?: string;
+  };
 
   if (typeof name !== "string" || !name.trim()) {
     return res.status(400).json({
@@ -111,4 +117,4 @@ export default async function handler(req, res) {
       message: "Could not send message. Please try again later.",
     });
   }
-} 
+}
