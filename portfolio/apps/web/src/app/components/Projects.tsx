@@ -9,27 +9,52 @@ const Badge = ({ children }: { children: React.ReactNode }) => (
   </span>
 );
 
+// 🟢 EVA TECH - Featured Project (UI/UX Design & Development)
 const featuredProject = {
-  title: 'Pennywise',
-  category: 'FULL-STACK FINTECH',
+  title: 'EVA TECH',
+  category: 'UI/UX DESIGN & DEVELOPMENT',
   description:
-    'Premium banking platform with glassmorphic design, virtual cards, real-time transactions.',
-  image: '/images/pennywise.png',
-  technologies: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-  live: 'https://pennywise-fintech-app.vercel.app/',
-  github: 'https://github.com/SanaHameed2/pennywise-fintech-app',
+    'Designed and developed a complete web presence for a local tech repair shop. This includes UI/UX design, brand identity (logo & color palette), and a fully responsive frontend built with modern tools.',
+  image: '/images/eva-tech.png',
+  technologies: ['React 18', 'Vite', 'Tailwind CSS', 'TypeScript', 'Figma'],
+  live: 'https://www.evatechuk.com/',
+  github: 'https://github.com/SanaHameed2/evatech',
   features: [
-    'Glassmorphic UI design with modern aesthetics',
-    'Virtual card management system',
-    'Real-time transaction tracking',
-    'Secure user authentication with Supabase',
-    'Responsive dashboard with analytics',
-    'Dark/light mode support',
+    'UI/UX design with a clean, modern, and minimal aesthetic',
+    'Brand identity (Logo design, color palette, typography system)',
+    'Fully responsive design (mobile-first approach)',
+    'Custom page layouts for services, products, and contact',
+    'Designed and developed from scratch by Sana Hameed',
   ],
-  stats: { users: '1.2K+', transactions: '5.8K+', uptime: '99.9%' },
+  stats: { users: '500+', transactions: '1K+', uptime: '99.9%' },
 };
 
 const projects = [
+  // ✅ EVA TECH - Sabse upar
+  {
+    id: 'evatech',
+    title: 'EVA TECH',
+    year: '2026 · UI/UX Design & Development',
+    category: 'ecommerce',
+    description:
+      'Complete UI/UX design and frontend development for a tech repair shop. Designed brand identity, responsive layouts, and custom components using React and Tailwind CSS.',
+    image: '/images/eva-tech.png',
+    tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript', 'Figma'],
+    github: 'https://github.com/SanaHameed2/evatech',
+    live: 'https://www.evatechuk.com/',
+  },
+  {
+    id: 'pennywise',
+    title: 'Pennywise',
+    year: '2025 · Full-Stack Fintech',
+    category: 'fintech',
+    description:
+      'Premium banking platform with glassmorphic design, virtual cards, real-time transactions, and secure authentication with Supabase.',
+    image: '/images/pennywise.png',
+    tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+    github: 'https://github.com/SanaHameed2/pennywise-fintech-app',
+    live: 'https://pennywise-fintech-app.vercel.app/',
+  },
   {
     id: 'getitmart',
     title: 'GetItMart',
@@ -164,7 +189,7 @@ export function Projects() {
     trackEvent('project_view', {
       project_name: featuredProject.title,
       project_type: 'featured',
-      category: 'fintech'
+      category: 'ecommerce'
     });
   }, []);
 
@@ -173,7 +198,7 @@ export function Projects() {
       <p className="text-small font-medium uppercase tracking-[0.3em] text-primary">Featured Projects</p>
       <h2 className="mt-4 text-3xl font-bold text-neutral-50 sm:text-section-heading">Selected work</h2>
 
-      {/* Featured project */}
+      {/* Featured project - EVA TECH */}
       <div className="mt-16 grid gap-8 md:grid-cols-5">
         <div className="flex flex-col md:col-span-3">
           <span className="font-mono text-small text-primary">{featuredProject.category}</span>
@@ -209,7 +234,7 @@ export function Projects() {
               href={featuredProject.live}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => handleProjectClick(featuredProject.title, 'pennywise-featured', 'live')}
+              onClick={() => handleProjectClick(featuredProject.title, 'evatech-featured', 'live')}
               className="inline-flex h-button items-center gap-2 rounded-button bg-primary px-6 font-medium text-white transition-colors duration-DEFAULT hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               <Eye size={18} aria-hidden="true" /> Live Demo
@@ -218,7 +243,7 @@ export function Projects() {
               href={featuredProject.github}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => handleProjectClick(featuredProject.title, 'pennywise-featured', 'github')}
+              onClick={() => handleProjectClick(featuredProject.title, 'evatech-featured', 'github')}
               className="inline-flex h-button items-center gap-2 rounded-button border border-border px-6 font-medium text-neutral-200 transition-colors duration-DEFAULT hover:border-border-hover hover:text-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               <Github size={18} aria-hidden="true" /> GitHub
