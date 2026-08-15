@@ -18,11 +18,14 @@ export function Hero() {
     <section
       id="hero"
       aria-label="Introduction"
-      className="relative flex min-h-screen items-center overflow-hidden bg-background pt-20"
+      className="relative flex min-h-screen items-center overflow-hidden bg-background pt-20 md:pt-32"
     >
-      {/* Ambient background — decorative only */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
         <div className="absolute -left-32 -top-40 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
+
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
@@ -34,7 +37,6 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-container grid-cols-1 items-center gap-8 px-5 py-10 sm:gap-12 sm:px-8 sm:py-14 lg:grid-cols-12 lg:gap-gutter lg:px-8 lg:py-20">
-        {/* Text first */}
         <div className="lg:col-span-7">
           <motion.p
             initial="hidden"
@@ -70,24 +72,23 @@ export function Hero() {
             thoughtful UI.
           </motion.p>
 
-          {/* ✅ BUTTONS - Mobile optimized */}
           <motion.div
             initial="hidden"
             animate="shown"
             variants={FADE_UP}
             transition={transition(0.15)}
-            className="mt-6 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4"
+            className="mt-6 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
           >
             <a
               href="#projects"
-              className="inline-flex h-11 items-center rounded-button bg-primary px-5 text-sm font-medium text-white transition-transform duration-DEFAULT ease-DEFAULT hover:-translate-y-0.5 hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-12 sm:px-8 sm:text-base"
+              className="inline-flex h-11 w-full items-center justify-center rounded-button bg-primary px-5 text-sm font-medium text-white transition-transform duration-DEFAULT ease-DEFAULT hover:-translate-y-0.5 hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-12 sm:w-auto sm:px-8 sm:text-base"
             >
               View My Work
             </a>
 
             <a
               href="#contact"
-              className="inline-flex h-11 items-center gap-2 rounded-button border border-border bg-white/5 px-5 text-sm font-medium text-neutral-50 backdrop-blur-md transition-colors duration-DEFAULT ease-DEFAULT hover:border-border-hover hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-12 sm:px-8 sm:text-base"
+              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-button border border-border bg-white/5 px-5 text-sm font-medium text-neutral-50 backdrop-blur-md transition-colors duration-DEFAULT ease-DEFAULT hover:border-border-hover hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:h-12 sm:w-auto sm:px-8 sm:text-base"
             >
               Get in touch
             </a>
@@ -101,17 +102,21 @@ export function Hero() {
             className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-neutral-400 sm:mt-12 sm:gap-6 sm:text-sm"
           >
             <span className="inline-flex items-center gap-1.5 sm:gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-success" aria-hidden="true" />
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-success"
+                aria-hidden="true"
+              />
               Available for remote work
             </span>
 
-            <span className="hidden sm:inline" aria-hidden="true">•</span>
+            <span className="hidden sm:inline" aria-hidden="true">
+              •
+            </span>
 
             <span>React · TypeScript · Tailwind</span>
           </motion.div>
         </div>
 
-        {/* Visual second — decorative illustration */}
         <motion.div
           initial={{ opacity: 0, x: reduceMotion ? 0 : 24 }}
           animate={{ opacity: 1, x: 0 }}
@@ -120,12 +125,35 @@ export function Hero() {
           aria-hidden="true"
         >
           <div className="relative w-full max-w-md">
-            <svg viewBox="0 0 400 300" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
-              <rect x="20" y="20" width="360" height="260" rx="16" fill="#061321" stroke="rgba(37,99,235,0.25)" strokeWidth="2" />
-              <rect x="20" y="20" width="360" height="36" rx="16" fill="rgba(37,99,235,0.08)" />
+            <svg
+              viewBox="0 0 400 300"
+              className="h-full w-full"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="20"
+                y="20"
+                width="360"
+                height="260"
+                rx="16"
+                fill="#061321"
+                stroke="rgba(37,99,235,0.25)"
+                strokeWidth="2"
+              />
+
+              <rect
+                x="20"
+                y="20"
+                width="360"
+                height="36"
+                rx="16"
+                fill="rgba(37,99,235,0.08)"
+              />
+
               <circle cx="44" cy="38" r="6" fill="#EF4444" opacity="0.7" />
               <circle cx="64" cy="38" r="6" fill="#F59E0B" opacity="0.7" />
               <circle cx="84" cy="38" r="6" fill="#22C55E" opacity="0.7" />
+
               {[
                 { y: 84, w: 140, o: 0.45 },
                 { y: 104, w: 220, o: 0.3 },
@@ -135,9 +163,19 @@ export function Hero() {
                 { y: 184, w: 200, o: 0.3 },
                 { y: 204, w: 160, o: 0.35 },
               ].map((r) => (
-                <rect key={r.y} x="44" y={r.y} width={r.w} height="6" rx="3" fill="#2563EB" opacity={r.o} />
+                <rect
+                  key={r.y}
+                  x="44"
+                  y={r.y}
+                  width={r.w}
+                  height="6"
+                  rx="3"
+                  fill="#2563EB"
+                  opacity={r.o}
+                />
               ))}
             </svg>
+
             <div className="absolute inset-0 -z-10 rounded-full bg-primary/10 blur-3xl" />
           </div>
         </motion.div>
