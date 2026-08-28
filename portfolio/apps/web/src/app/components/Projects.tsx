@@ -56,7 +56,7 @@ const projects = [
     github: 'https://github.com/SanaHameed2/pennywise-fintech-app',
     live: 'https://pennywise-fintech-app.vercel.app/',
   },
-  // ✅ MEGAMART - 3rd (NEW!)
+  // ✅ MEGAMART - 3rd (UPDATED LIVE LINK!)
   {
     id: 'megamart',
     title: 'MegaMart',
@@ -67,7 +67,7 @@ const projects = [
     image: '/images/megamart.png',
     tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vite'],
     github: 'https://github.com/SanaHameed2/MegaMart',
-    live: 'https://megamart.vercel.app/',
+    live: 'https://megamart-eta.vercel.app/',  // ✅ UPDATED!
   },
   // ✅ GETITMART - 4th
   {
@@ -108,7 +108,6 @@ const projects = [
     github: 'https://github.com/SanaHameed2/mathlings',
     live: 'https://sanahameed2.github.io/mathlings/',
   },
-  // ❌ NEXCENT - REMOVED!
 ];
 
 const categories = ['all', 'fintech', 'ecommerce', 'educational'];
