@@ -30,7 +30,7 @@ const featuredProject = {
 };
 
 const projects = [
-  // ✅ EVA TECH - Sabse upar
+  // ✅ EVA TECH - 1st
   {
     id: 'evatech',
     title: 'EVA TECH',
@@ -43,6 +43,7 @@ const projects = [
     github: 'https://github.com/SanaHameed2/evatech',
     live: 'https://www.evatechuk.com/',
   },
+  // ✅ PENNYWISE - 2nd
   {
     id: 'pennywise',
     title: 'Pennywise',
@@ -55,6 +56,20 @@ const projects = [
     github: 'https://github.com/SanaHameed2/pennywise-fintech-app',
     live: 'https://pennywise-fintech-app.vercel.app/',
   },
+  // ✅ MEGAMART - 3rd (NEW!)
+  {
+    id: 'megamart',
+    title: 'MegaMart',
+    year: '2026 · Full-Stack E-Commerce',
+    category: 'ecommerce',
+    description:
+      'Complete e-commerce platform with product catalog, search, category-specific brand filters, shopping cart, wishlist, checkout, admin dashboard, coupon system, and reviews.',
+    image: '/images/megamart.png',
+    tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vite'],
+    github: 'https://github.com/SanaHameed2/MegaMart',
+    live: 'https://megamart.vercel.app/',
+  },
+  // ✅ GETITMART - 4th
   {
     id: 'getitmart',
     title: 'GetItMart',
@@ -67,6 +82,7 @@ const projects = [
     github: 'https://github.com/SanaHameed2/Getit',
     live: 'https://getit-puce.vercel.app/',
   },
+  // ✅ STUDENT MANAGEMENT - 5th
   {
     id: 'student-management',
     title: 'Student Management System',
@@ -79,6 +95,7 @@ const projects = [
     github: 'https://github.com/SanaHameed2/student-management-system',
     live: 'https://student-management-system-ten-mu.vercel.app/',
   },
+  // ✅ MATHLINGS - 6th
   {
     id: 'mathlings',
     title: 'Mathlings',
@@ -91,21 +108,10 @@ const projects = [
     github: 'https://github.com/SanaHameed2/mathlings',
     live: 'https://sanahameed2.github.io/mathlings/',
   },
-  {
-    id: 'nexcent',
-    title: 'Nexcent',
-    year: '2025 · Business',
-    category: 'business',
-    description:
-      'Modern business solutions platform built with HTML, CSS, and JavaScript featuring responsive design and interactive components.',
-    image: '/images/nexcent.png',
-    tags: ['HTML5', 'CSS3', 'JavaScript'],
-    github: 'https://github.com/SanaHameed2/nexcent',
-    live: 'https://sanahameed2.github.io/nexcent/',
-  },
+  // ❌ NEXCENT - REMOVED!
 ];
 
-const categories = ['all', 'fintech', 'ecommerce', 'educational', 'business'];
+const categories = ['all', 'fintech', 'ecommerce', 'educational'];
 
 function AnimatedCounter({ end, suffix = '', duration = 2 }: { end: number; suffix?: string; duration?: number }) {
   const reduceMotion = useReducedMotion();
