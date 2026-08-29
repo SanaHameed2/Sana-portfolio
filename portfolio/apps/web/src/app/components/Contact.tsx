@@ -22,11 +22,11 @@ const ICONS: Record<string, LucideIcon> = {
 const contacts = SOCIAL_LINKS.map((link) => ({
   title: link.label,
   value: link.display || link.label,
-  href: link.href,
-  icon: ICONS[link.id],
+  href: link.href || "#",
+  icon: ICONS[link.id?.toLowerCase()] || Globe, // Fallback icon in case link.id is missing or doesn't match
 }));
 
-// ✅ CHANGE MADE HERE - Simplified API URL
+// API URL
 const API_URL = "/api/contact";
 
 export function Contact() {
@@ -379,78 +379,81 @@ export function Contact() {
               </p>
 
               <div className="space-y-3">
-                {contacts.map(({ title, value, href, icon: Icon }) => (
-                  <a
-                    key={title}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      group
-                      flex
-                      min-w-0
-                      items-center
-                      justify-between
-                      gap-3
-                      rounded-xl
-                      border
-                      border-ink-800
-                      bg-black/30
-                      p-3
-                      transition-colors
-                      duration-200
-                      hover:border-neutral-700
-                      hover:bg-black/50
-                      sm:p-4
-                    "
-                  >
-                    <span className="flex min-w-0 items-center gap-3 sm:gap-4">
-                      <span
-                        className="
-                          flex
-                          h-10
-                          w-10
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-xl
-                          border
-                          border-primary/25
-                          bg-primary/10
-                          text-primary
-                          sm:h-11
-                          sm:w-11
-                        "
-                      >
-                        <Icon size={17} aria-hidden="true" />
-                      </span>
-
-                      <span className="min-w-0">
-                        <span className="block text-sm font-semibold text-neutral-50 sm:text-base">
-                          {title}
-                        </span>
-
-                        <span className="mt-0.5 block truncate text-xs text-neutral-500 sm:text-sm">
-                          {value}
-                        </span>
-                      </span>
-                    </span>
-
-                    <ArrowUpRight
-                      size={17}
-                      aria-hidden="true"
+                {contacts.map(({ title, value, href, icon: Icon }) => {
+                  const RenderIcon = Icon || Globe;
+                  return (
+                    <a
+                      key={title}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="
-                        shrink-0
-                        text-neutral-500
-                        transition-transform
+                        group
+                        flex
+                        min-w-0
+                        items-center
+                        justify-between
+                        gap-3
+                        rounded-xl
+                        border
+                        border-ink-800
+                        bg-black/30
+                        p-3
+                        transition-colors
                         duration-200
-                        group-hover:-translate-y-1
-                        group-hover:translate-x-1
-                        group-hover:text-primary
+                        hover:border-neutral-700
+                        hover:bg-black/50
+                        sm:p-4
                       "
-                    />
-                  </a>
-                ))}
+                    >
+                      <span className="flex min-w-0 items-center gap-3 sm:gap-4">
+                        <span
+                          className="
+                            flex
+                            h-10
+                            w-10
+                            shrink-0
+                            items-center
+                            justify-center
+                            rounded-xl
+                            border
+                            border-primary/25
+                            bg-primary/10
+                            text-primary
+                            sm:h-11
+                            sm:w-11
+                          "
+                        >
+                          <RenderIcon size={17} aria-hidden="true" />
+                        </span>
+
+                        <span className="min-w-0">
+                          <span className="block text-sm font-semibold text-neutral-50 sm:text-base">
+                            {title}
+                          </span>
+
+                          <span className="mt-0.5 block truncate text-xs text-neutral-500 sm:text-sm">
+                            {value}
+                          </span>
+                        </span>
+                      </span>
+
+                      <ArrowUpRight
+                        size={17}
+                        aria-hidden="true"
+                        className="
+                          shrink-0
+                          text-neutral-500
+                          transition-transform
+                          duration-200
+                          group-hover:-translate-y-1
+                          group-hover:translate-x-1
+                          group-hover:text-primary
+                        "
+                      />
+                    </a>
+                  );
+                })}
               </div>
 
               {/* Location */}

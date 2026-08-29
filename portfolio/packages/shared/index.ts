@@ -9,7 +9,7 @@ export const SOCIAL_LINKS = [
   {
     id: "github",
     label: "GitHub",
-    display: "@sanahameed",
+    display: "@SanaHameed2",
     href: "https://github.com/SanaHameed2",
   },
   {
@@ -19,10 +19,16 @@ export const SOCIAL_LINKS = [
     href: "https://linkedin.com/in/sanahameed",
   },
   {
-    id: "portfolio",
-    label: "Portfolio",
-    display: "sanahameed.dev",
-    href: "https://sanahameed.dev",
+    id: "facebook",
+    label: "Facebook",
+    display: "SSF",
+    href: "https://www.facebook.com/people/SSF/61576550678025/",
+  },
+  {
+    id: "instagram",
+    label: "Instagram",
+    display: "@ssf_designs",
+    href: "https://www.instagram.com/ssf_designs",
   },
 ];
 

@@ -106,7 +106,7 @@ export function Hero() {
                 className="h-1.5 w-1.5 rounded-full bg-success"
                 aria-hidden="true"
               />
-              Available for remote work
+              Available for onsite/part-time/remote work
             </span>
 
             <span className="hidden sm:inline" aria-hidden="true">
