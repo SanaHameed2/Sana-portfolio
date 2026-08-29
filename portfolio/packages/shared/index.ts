@@ -10,7 +10,7 @@ export const SOCIAL_LINKS = [
     id: "github",
     label: "GitHub",
     display: "@sanahameed",
-    href: "https://github.com/sanahameed",
+    href: "https://github.com/SanaHameed2",
   },
   {
     id: "linkedin",

@@ -18,7 +18,7 @@ const featuredProject = {
   image: '/images/eva-tech.png',
   technologies: ['React 18', 'Vite', 'Tailwind CSS', 'TypeScript', 'Figma'],
   live: 'https://www.evatechuk.com/',
-  github: 'https://github.com/SanaHameed2/evatech',
+  github: 'https://github.com/SanaHameed22/evatech',
   features: [
     'UI/UX design with a clean, modern, and minimal aesthetic',
     'Brand identity (Logo design, color palette, typography system)',
@@ -40,7 +40,7 @@ const projects = [
       'Complete UI/UX design and frontend development for a tech repair shop. Designed brand identity, responsive layouts, and custom components using React and Tailwind CSS.',
     image: '/images/eva-tech.png',
     tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript', 'Figma'],
-    github: 'https://github.com/SanaHameed2/evatech',
+    github: 'https://github.com/SanaHameed22/evatech',
     live: 'https://www.evatechuk.com/',
   },
   // ✅ PENNYWISE - 2nd
@@ -53,7 +53,7 @@ const projects = [
       'Premium banking platform with glassmorphic design, virtual cards, real-time transactions, and secure authentication with Supabase.',
     image: '/images/pennywise.png',
     tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-    github: 'https://github.com/SanaHameed2/pennywise-fintech-app',
+    github: 'https://github.com/SanaHameed22/pennywise-fintech-app',
     live: 'https://pennywise-fintech-app.vercel.app/',
   },
   // ✅ MEGAMART - 3rd (UPDATED LIVE LINK!)
@@ -66,7 +66,7 @@ const projects = [
       'Complete e-commerce platform with product catalog, search, category-specific brand filters, shopping cart, wishlist, checkout, admin dashboard, coupon system, and reviews.',
     image: '/images/megamart.png',
     tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vite'],
-    github: 'https://github.com/SanaHameed2/MegaMart',
+    github: 'https://github.com/SanaHameed22/MegaMart',
     live: 'https://megamart-eta.vercel.app/',  // ✅ UPDATED!
   },
   // ✅ GETITMART - 4th
@@ -79,7 +79,7 @@ const projects = [
       'Full-stack ecommerce platform with product catalog, shopping cart, authentication, wishlist, reviews, admin panel, and dark mode.',
     image: '/images/getitmart.png',
     tags: ['React 18', 'Vite', 'Tailwind CSS', 'Supabase'],
-    github: 'https://github.com/SanaHameed2/Getit',
+    github: 'https://github.com/SanaHameed22/Getit',
     live: 'https://getit-puce.vercel.app/',
   },
   // ✅ STUDENT MANAGEMENT - 5th
@@ -92,7 +92,7 @@ const projects = [
       'Complete student management system with CRUD operations, dark mode, attendance, grade calculator, and reports.',
     image: '/images/student-management.png',
     tags: ['React.js', 'Tailwind CSS', 'Context API'],
-    github: 'https://github.com/SanaHameed2/student-management-system',
+    github: 'https://github.com/SanaHameed22/student-management-system',
     live: 'https://student-management-system-ten-mu.vercel.app/',
   },
   // ✅ MATHLINGS - 6th
@@ -105,7 +105,7 @@ const projects = [
       'Interactive learning platform for kids with math games, animated stories, and video content.',
     image: '/images/mathlings.png',
     tags: ['HTML5', 'CSS3', 'JavaScript'],
-    github: 'https://github.com/SanaHameed2/mathlings',
+    github: 'https://github.com/SanaHameed22/mathlings',
     live: 'https://sanahameed2.github.io/mathlings/',
   },
 ];
@@ -377,7 +377,7 @@ export function Projects() {
 
       <div className="mt-8 text-center">
         <a
-          href="https://github.com/SanaHameed2"
+          href="https://github.com/SanaHameed22"
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => {

@@ -147,7 +147,7 @@ Call log:
   - link "Live Demo":
     - /url: https://pennywise-fintech-app.vercel.app/
   - link "GitHub":
-    - /url: https://github.com/SanaHameed2/pennywise-fintech-app
+    - /url: https://github.com/SanaHameed22/pennywise-fintech-app
   - text: React 18 TypeScript Tailwind CSS Supabase
   - img "Pennywise preview"
   - text: 40+
@@ -171,7 +171,7 @@ Call log:
       - /url: https://getit-puce.vercel.app/
       - text: Demo
     - link "View GetItMart source on GitHub":
-      - /url: https://github.com/SanaHameed2/Getit
+      - /url: https://github.com/SanaHameed22/Getit
     - paragraph: Full-stack ecommerce platform with product catalog, shopping cart, authentication, wishlist, reviews, admin panel, and dark mode.
     - text: React 18 Vite Tailwind CSS Supabase
   - article:
@@ -182,7 +182,7 @@ Call log:
       - /url: https://student-management-system-ten-mu.vercel.app/
       - text: Demo
     - link "View Student Management System source on GitHub":
-      - /url: https://github.com/SanaHameed2/student-management-system
+      - /url: https://github.com/SanaHameed22/student-management-system
     - paragraph: Complete student management system with CRUD operations, dark mode, attendance, grade calculator, and reports.
     - text: React.js Tailwind CSS Context API
   - article:
@@ -193,7 +193,7 @@ Call log:
       - /url: https://sanahameed2.github.io/mathlings/
       - text: Demo
     - link "View Mathlings source on GitHub":
-      - /url: https://github.com/SanaHameed2/mathlings
+      - /url: https://github.com/SanaHameed22/mathlings
     - paragraph: Interactive learning platform for kids with math games, animated stories, and video content.
     - text: HTML5 CSS3 JavaScript
   - article:
@@ -204,12 +204,12 @@ Call log:
       - /url: https://sanahameed2.github.io/nexcent/
       - text: Demo
     - link "View Nexcent source on GitHub":
-      - /url: https://github.com/SanaHameed2/nexcent
+      - /url: https://github.com/SanaHameed22/nexcent
     - paragraph: Modern business solutions platform built with HTML, CSS, and JavaScript featuring responsive design and interactive components.
     - text: HTML5 CSS3 JavaScript
   - paragraph: Showing 4 projects
   - link "View all projects on GitHub":
-    - /url: https://github.com/SanaHameed2
+    - /url: https://github.com/SanaHameed22
   - region "Client reviews":
     - heading "Client reviews" [level=2]
     - paragraph: What my clients say about my work
@@ -242,7 +242,7 @@ Call log:
   - status
   - paragraph: Connect
   - link "GitHub @SanaHameed2":
-    - /url: https://github.com/SanaHameed2
+    - /url: https://github.com/SanaHameed22
   - link "LinkedIn Sana Hameed":
     - /url: https://linkedin.com/in/sana-hameed
   - link "Portfolio SanaHameed2.github.io":
@@ -252,7 +252,7 @@ Call log:
   - text: Karachi, Pakistan
 - contentinfo:
   - link "GitHub":
-    - /url: https://github.com/SanaHameed2
+    - /url: https://github.com/SanaHameed22
   - link "LinkedIn":
     - /url: https://linkedin.com/in/sana-hameed
   - link "WhatsApp":
