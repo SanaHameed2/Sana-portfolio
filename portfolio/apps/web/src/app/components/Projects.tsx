@@ -18,7 +18,7 @@ const featuredProject = {
   image: '/images/eva-tech.png',
   technologies: ['React 18', 'Vite', 'Tailwind CSS', 'TypeScript', 'Figma'],
   live: 'https://www.evatechuk.com/',
-  github: 'https://github.com/SanaHameed222/evatech',
+  // 🔴 REMOVED: github link for EVA TECH featured project
   features: [
     'UI/UX design with a clean, modern, and minimal aesthetic',
     'Brand identity (Logo design, color palette, typography system)',
@@ -30,7 +30,7 @@ const featuredProject = {
 };
 
 const projects = [
-  // ✅ EVA TECH - 1st
+  // ✅ EVA TECH - 1st (GITHUB LINK REMOVED)
   {
     id: 'evatech',
     title: 'EVA TECH',
@@ -40,7 +40,7 @@ const projects = [
       'Complete UI/UX design and frontend development for a tech repair shop. Designed brand identity, responsive layouts, and custom components using React and Tailwind CSS.',
     image: '/images/eva-tech.png',
     tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript', 'Figma'],
-    github: 'https://github.com/SanaHameed222/evatech',
+    // 🔴 REMOVED: github link
     live: 'https://www.evatechuk.com/',
   },
   // ✅ PENNYWISE - 2nd
@@ -56,7 +56,7 @@ const projects = [
     github: 'https://github.com/SanaHameed222/pennywise-fintech-app',
     live: 'https://pennywise-fintech-app.vercel.app/',
   },
-  // ✅ MEGAMART - 3rd (UPDATED LIVE LINK!)
+  // ✅ MEGAMART - 3rd
   {
     id: 'megamart',
     title: 'MegaMart',
@@ -66,10 +66,10 @@ const projects = [
       'Complete e-commerce platform with product catalog, search, category-specific brand filters, shopping cart, wishlist, checkout, admin dashboard, coupon system, and reviews.',
     image: '/images/megamart.png',
     tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vite'],
-    github: 'https://github.com/SanaHameed222/MegaMart',
-    live: 'https://megamart-eta.vercel.app/',  // ✅ UPDATED!
+    github: 'https://github.com/SanaHameed2/MegaMart',
+    live: 'https://megamart-eta.vercel.app/',
   },
-  // ✅ GETITMART - 4th
+  // ✅ GETITMART - 4th (GITHUB LINK UPDATED)
   {
     id: 'getitmart',
     title: 'GetItMart',
@@ -79,7 +79,7 @@ const projects = [
       'Full-stack ecommerce platform with product catalog, shopping cart, authentication, wishlist, reviews, admin panel, and dark mode.',
     image: '/images/getitmart.png',
     tags: ['React 18', 'Vite', 'Tailwind CSS', 'Supabase'],
-    github: 'https://github.com/SanaHameed222/Getit',
+    github: 'https://github.com/SanaHameed2/Getit', // ✅ Updated
     live: 'https://getit-puce.vercel.app/',
   },
   // ✅ STUDENT MANAGEMENT - 5th
@@ -92,7 +92,7 @@ const projects = [
       'Complete student management system with CRUD operations, dark mode, attendance, grade calculator, and reports.',
     image: '/images/student-management.png',
     tags: ['React.js', 'Tailwind CSS', 'Context API'],
-    github: 'https://github.com/SanaHameed222/student-management-system',
+    github: 'https://github.com/SanaHameed2/student-management-system',
     live: 'https://student-management-system-ten-mu.vercel.app/',
   },
   // ✅ MATHLINGS - 6th
@@ -244,15 +244,7 @@ export function Projects() {
             >
               <Eye size={18} aria-hidden="true" /> Live Demo
             </a>
-            <a
-              href={featuredProject.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleProjectClick(featuredProject.title, 'evatech-featured', 'github')}
-              className="inline-flex h-button items-center gap-2 rounded-button border border-border px-6 font-medium text-neutral-200 transition-colors duration-DEFAULT hover:border-border-hover hover:text-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              <Github size={18} aria-hidden="true" /> GitHub
-            </a>
+            {/* 🔴 REMOVED: GitHub button for featured project */}
           </div>
 
           <div className="mt-auto flex flex-wrap gap-2">
@@ -343,16 +335,19 @@ export function Projects() {
                 >
                   <Eye size={14} aria-hidden="true" /> Demo
                 </a>
-                <a
-                  href={p.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View ${p.title} source on GitHub`}
-                  onClick={() => handleProjectClick(p.title, p.id, 'github')}
-                  className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-xs text-neutral-200 transition-colors duration-DEFAULT hover:border-border-hover hover:text-neutral-50"
-                >
-                  <Github size={14} aria-hidden="true" />
-                </a>
+                {/* Conditionally render GitHub button only if github link exists */}
+                {p.github && (
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${p.title} source on GitHub`}
+                    onClick={() => handleProjectClick(p.title, p.id, 'github')}
+                    className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-xs text-neutral-200 transition-colors duration-DEFAULT hover:border-border-hover hover:text-neutral-50"
+                  >
+                    <Github size={14} aria-hidden="true" />
+                  </a>
+                )}
               </div>
             </div>
             <p className="mb-4 text-small text-neutral-200">{p.description}</p>
