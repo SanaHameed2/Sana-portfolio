@@ -3,109 +3,107 @@ import { ExternalLink, Github, Eye, Check } from 'lucide-react';
 import { useState, useEffect, useId } from 'react';
 import { useAnalyticsContext } from '../../context/AnalyticsContext';
 
+// ⚪ High-contrast White Glassmorphic Pill Badge
 const Badge = ({ children }: { children: React.ReactNode }) => (
-  <span className="rounded border border-primary/30 bg-primary/10 px-2 py-1 font-mono text-[10px] text-primary">
+  <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs font-medium text-white backdrop-blur-md shadow-sm transition-all hover:border-white/40 hover:bg-white/20">
     {children}
   </span>
 );
 
-// 🟢 EVA TECH - Featured Project (UI/UX Design & Development)
+// 🟢 EVA TECH - Featured Project (Verified Stats)
 const featuredProject = {
   title: 'EVA TECH',
-  category: 'UI/UX DESIGN & DEVELOPMENT',
+  category: 'UI/UX DESIGN & BRAND ARCHITECTURE',
   description:
-    'Designed and developed a complete web presence for a local tech repair shop. This includes UI/UX design, brand identity (logo & color palette), and a fully responsive frontend built with modern tools.',
+    'Designed and developed a complete web platform and brand identity for a UK-based tech repair shop. Engineered for high performance, dynamic responsiveness, and maximum accessibility.',
   image: '/images/eva-tech.png',
-  technologies: ['React 18', 'Vite', 'Tailwind CSS', 'TypeScript', 'Figma'],
+  technologies: ['React 18', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Figma', 'Technical SEO'],
   live: 'https://www.evatechuk.com/',
-  // 🔴 REMOVED: github link for EVA TECH featured project
   features: [
-    'UI/UX design with a clean, modern, and minimal aesthetic',
-    'Brand identity (Logo design, color palette, typography system)',
-    'Fully responsive design (mobile-first approach)',
-    'Custom page layouts for services, products, and contact',
-    'Designed and developed from scratch by Sana Hameed',
+    'Custom design system and modern responsive visual hierarchy',
+    'Brand identity design (logo, color architecture, and typography system)',
+    'Optimized Core Web Vitals delivering fast page load speeds',
+    'Dynamic service pages, XML sitemaps, and WCAG accessibility standards',
+    'End-to-end design and front-end development by Sana Hameed',
   ],
-  stats: { users: '500+', transactions: '1K+', uptime: '99.9%' },
+  stats: { launched: '2024', status: 'Live', maintained: 'Ongoing' },
 };
 
 const projects = [
-  // ✅ EVA TECH - 1st (GITHUB LINK REMOVED)
+  // 1. EVA TECH
   {
     id: 'evatech',
     title: 'EVA TECH',
-    year: '2026 · UI/UX Design & Development',
+    year: '2026 · UI/UX & Web Architecture',
     category: 'ecommerce',
     description:
-      'Complete UI/UX design and frontend development for a tech repair shop. Designed brand identity, responsive layouts, and custom components using React and Tailwind CSS.',
+      'Complete brand identity design and frontend engineering for a UK tech platform. Built with React and Tailwind CSS featuring dynamic service layouts and optimized SEO.',
     image: '/images/eva-tech.png',
-    tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript', 'Figma'],
-    // 🔴 REMOVED: github link
+    tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Figma'],
     live: 'https://www.evatechuk.com/',
   },
-  // ✅ PENNYWISE - 2nd
+  // 2. PENNYWISE
   {
     id: 'pennywise',
     title: 'Pennywise',
     year: '2025 · Full-Stack Fintech',
     category: 'fintech',
     description:
-      'Premium banking platform with glassmorphic design, virtual cards, real-time transactions, and secure authentication with Supabase.',
+      'Premium banking workspace featuring glassmorphic UI, real-time transaction tracking, virtual card management, and secure Supabase database authentication.',
     image: '/images/pennywise.png',
     tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-    github: 'https://github.com/SanaHameed222/pennywise-fintech-app',
     live: 'https://pennywise-fintech-app.vercel.app/',
   },
-  // ✅ MEGAMART - 3rd
+  // 3. MEGAMART
   {
     id: 'megamart',
     title: 'MegaMart',
     year: '2026 · Full-Stack E-Commerce',
     category: 'ecommerce',
     description:
-      'Complete e-commerce platform with product catalog, search, category-specific brand filters, shopping cart, wishlist, checkout, admin dashboard, coupon system, and reviews.',
+      'Feature-rich e-commerce engine with multi-filter search, product catalogs, interactive cart & checkout workflows, admin control dashboard, and Supabase backend.',
     image: '/images/megamart.png',
     tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vite'],
     github: 'https://github.com/SanaHameed2/MegaMart',
     live: 'https://megamart-eta.vercel.app/',
   },
-  // ✅ GETITMART - 4th (GITHUB LINK UPDATED)
+  // 4. GETITMART
   {
     id: 'getitmart',
     title: 'GetItMart',
-    year: '2025 · E-commerce',
+    year: '2025 · E-commerce Marketplace',
     category: 'ecommerce',
     description:
-      'Full-stack ecommerce platform with product catalog, shopping cart, authentication, wishlist, reviews, admin panel, and dark mode.',
+      'Scalable digital marketplace with dynamic inventory routing, secure user state management, wishlists, dynamic dark mode, and admin catalog management.',
     image: '/images/getitmart.png',
-    tags: ['React 18', 'Vite', 'Tailwind CSS', 'Supabase'],
-    github: 'https://github.com/SanaHameed2/Getit', // ✅ Updated
+    tags: ['React 18', 'TanStack Query', 'Tailwind CSS', 'Supabase', 'Vite'],
+    github: 'https://github.com/SanaHameed2/Getit',
     live: 'https://getit-puce.vercel.app/',
   },
-  // ✅ STUDENT MANAGEMENT - 5th
+  // 5. STUDENT MANAGEMENT SYSTEM
   {
     id: 'student-management',
     title: 'Student Management System',
-    year: '2025 · Full-stack app',
+    year: '2025 · Relational SaaS Application',
     category: 'educational',
     description:
-      'Complete student management system with CRUD operations, dark mode, attendance, grade calculator, and reports.',
+      'Relational database dashboard supporting complete CRUD data management, dynamic academic analytics, attendance recording, and role-based UI controls.',
     image: '/images/student-management.png',
-    tags: ['React.js', 'Tailwind CSS', 'Context API'],
+    tags: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Context API'],
     github: 'https://github.com/SanaHameed2/student-management-system',
     live: 'https://student-management-system-ten-mu.vercel.app/',
   },
-  // ✅ MATHLINGS - 6th
+  // 6. MATHLINGS
   {
     id: 'mathlings',
     title: 'Mathlings',
-    year: '2025 · Educational',
+    year: '2025 · Interactive Platform',
     category: 'educational',
     description:
-      'Interactive learning platform for kids with math games, animated stories, and video content.',
+      'Gamified interactive learning Web application for kids featuring animated story paths, interactive math puzzles, and lightweight front-end performance.',
     image: '/images/mathlings.png',
-    tags: ['HTML5', 'CSS3', 'JavaScript'],
-    github: 'https://github.com/SanaHameed222/mathlings',
+    tags: ['HTML5', 'CSS3', 'JavaScript (ES6+)'],
+    github: 'https://github.com/SanaHameed2/mathlings',
     live: 'https://sanahameed2.github.io/mathlings/',
   },
 ];
@@ -161,7 +159,7 @@ export function Projects() {
   const reduceMotion = useReducedMotion();
   const countId = useId();
   const { trackEvent } = useAnalyticsContext();
-  
+
   const filteredProjects = projects.filter((p) => filter === 'all' || p.category === filter);
 
   const fadeUp = (delay = 0) => ({
@@ -171,30 +169,28 @@ export function Projects() {
     transition: { duration: reduceMotion ? 0 : 0.4, delay },
   });
 
-  // Track project interactions
   const handleProjectClick = (projectName: string, projectId: string, type: 'live' | 'github' | 'card') => {
     trackEvent('project_click', {
       project_name: projectName,
       project_id: projectId,
       click_type: type,
-      category: projects.find(p => p.id === projectId)?.category || 'unknown'
+      category: projects.find((p) => p.id === projectId)?.category || 'unknown',
     });
   };
 
   const handleFilterChange = (category: string) => {
     trackEvent('project_filter', {
       filter_category: category,
-      previous_filter: filter
+      previous_filter: filter,
     });
     setFilter(category);
   };
 
-  // Track featured project view
   useEffect(() => {
     trackEvent('project_view', {
       project_name: featuredProject.title,
       project_type: 'featured',
-      category: 'ecommerce'
+      category: 'ecommerce',
     });
   }, []);
 
@@ -221,16 +217,16 @@ export function Projects() {
 
           <dl className="mt-6 flex gap-6 rounded-2xl border border-border bg-surface/60 p-4">
             <div>
-              <dd className="text-2xl font-bold text-primary">{featuredProject.stats.users}</dd>
-              <dt className="text-xs text-neutral-400">Active Users</dt>
+              <dd className="text-2xl font-bold text-primary">{featuredProject.stats.launched}</dd>
+              <dt className="text-xs text-neutral-400">Launched</dt>
             </div>
             <div className="border-l border-border pl-6">
-              <dd className="text-2xl font-bold text-primary">{featuredProject.stats.transactions}</dd>
-              <dt className="text-xs text-neutral-400">Transactions</dt>
+              <dd className="text-2xl font-bold text-primary">{featuredProject.stats.status}</dd>
+              <dt className="text-xs text-neutral-400">Status</dt>
             </div>
             <div className="border-l border-border pl-6">
-              <dd className="text-2xl font-bold text-primary">{featuredProject.stats.uptime}</dd>
-              <dt className="text-xs text-neutral-400">Uptime</dt>
+              <dd className="text-2xl font-bold text-primary">{featuredProject.stats.maintained}</dd>
+              <dt className="text-xs text-neutral-400">Maintenance</dt>
             </div>
           </dl>
 
@@ -244,7 +240,6 @@ export function Projects() {
             >
               <Eye size={18} aria-hidden="true" /> Live Demo
             </a>
-            {/* 🔴 REMOVED: GitHub button for featured project */}
           </div>
 
           <div className="mt-auto flex flex-wrap gap-2">
@@ -261,13 +256,13 @@ export function Projects() {
         </div>
       </div>
 
-      {/* Stats */}
+      {/* Updated Stats Section - 40+ Graphic Design & Web Clients */}
       <motion.div
         {...fadeUp()}
         className="mb-16 mt-16 grid grid-cols-1 gap-8 rounded-card border border-border bg-surface/60 p-8 md:grid-cols-3"
       >
         {[
-          { end: 40, label: 'Clients Served' },
+          { end: 40, label: 'Clients Served (Design & Web)' },
           { end: 8, label: 'Years in Design' },
           { end: 2, label: 'Years in Development' },
         ].map((s, i) => (
@@ -310,7 +305,7 @@ export function Projects() {
             className="group relative rounded-card border border-border bg-surface/40 p-6 transition-colors duration-DEFAULT hover:border-border-hover hover:bg-surface/60"
           >
             {i === 0 && filter === 'all' && (
-              <span className="absolute right-4 top-4 z-10 rounded-full bg-primary px-2 py-1 text-xs text-white">
+              <span className="absolute right-4 top-4 z-10 rounded-full bg-primary px-2.5 py-1 text-xs font-semibold text-white shadow-md">
                 Featured
               </span>
             )}
@@ -335,7 +330,6 @@ export function Projects() {
                 >
                   <Eye size={14} aria-hidden="true" /> Demo
                 </a>
-                {/* Conditionally render GitHub button only if github link exists */}
                 {p.github && (
                   <a
                     href={p.github}
@@ -372,14 +366,14 @@ export function Projects() {
 
       <div className="mt-8 text-center">
         <a
-          href="https://github.com/SanaHameed222"
+          href="https://github.com/SanaHameed2"
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => {
             trackEvent('social_click', {
               platform: 'github',
               location: 'projects_section',
-              action: 'view_all_projects'
+              action: 'view_all_projects',
             });
           }}
           className="inline-flex h-button items-center gap-2 rounded-button bg-primary px-8 font-medium text-white transition-colors duration-DEFAULT hover:bg-primary-hover"
