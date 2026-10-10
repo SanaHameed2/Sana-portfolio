@@ -1,10 +1,15 @@
 // packages/shared/index.ts
+
+/**
+ * Social links displayed in the Contact section.
+ * Order matters — appears top to bottom in the UI.
+ */
 export const SOCIAL_LINKS = [
   {
     id: "whatsapp",
     label: "WhatsApp",
-    display: "+92 300 1234567",
-    href: "https://wa.me/923001234567",
+    display: "+92 340 2869594",
+    href: "https://wa.me/923402869594",
   },
   {
     id: "github",
@@ -16,22 +21,19 @@ export const SOCIAL_LINKS = [
     id: "linkedin",
     label: "LinkedIn",
     display: "Sana Hameed",
-    href: "https://linkedin.com/in/sanahameed",
+    href: "https://linkedin.com/in/sana-h-4b942157",
   },
   {
-    id: "facebook",
-    label: "Facebook",
-    display: "SSF",
-    href: "https://www.facebook.com/people/SSF/61576550678025/",
-  },
-  {
-    id: "instagram",
-    label: "Instagram",
-    display: "@ssf_designs",
-    href: "https://www.instagram.com/ssf_designs",
+    id: "portfolio",
+    label: "Portfolio",
+    display: "sana-portfolio-weld.vercel.app",
+    href: "https://sana-portfolio-weld.vercel.app",
   },
 ];
 
+/**
+ * Main navigation links (used in the sticky header).
+ */
 export const NAV_LINKS = [
   { id: "home", label: "Home", href: "#hero" },
   { id: "about", label: "About", href: "#about" },

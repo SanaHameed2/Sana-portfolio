@@ -1,5 +1,6 @@
+// src/components/Projects.tsx
 import { motion, useReducedMotion } from 'framer-motion';
-import { ExternalLink, Github, Eye, Check } from 'lucide-react';
+import { ExternalLink, Github, Eye, Check, Shield } from 'lucide-react';
 import { useState, useEffect, useId } from 'react';
 import { useAnalyticsContext } from '../../context/AnalyticsContext';
 
@@ -29,7 +30,21 @@ const featuredProject = {
   stats: { launched: '2024', status: 'Live', maintained: 'Ongoing' },
 };
 
-const projects = [
+interface Project {
+  id: string;
+  title: string;
+  year: string;
+  category: string;
+  description: string;
+  image: string;
+  tags: string[];
+  live?: string;
+  github?: string;
+  audit?: string;
+  featured?: boolean;
+}
+
+const projects: Project[] = [
   // 1. EVA TECH
   {
     id: 'evatech',
@@ -61,11 +76,13 @@ const projects = [
     year: '2026 · Full-Stack E-Commerce',
     category: 'ecommerce',
     description:
-      'Feature-rich e-commerce engine with multi-filter search, product catalogs, interactive cart & checkout workflows, admin control dashboard, and Supabase backend.',
+      'Production-grade e-commerce platform with multi-filter search, cart & checkout workflows, verified-purchase reviews, and admin dashboard. Comprehensive security audit: 14 tables with Row-Level Security, 40+ policies verified, 9 vulnerabilities fixed and live-tested.',
     image: '/images/megamart.png',
-    tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vite'],
+    tags: ['React 19', 'TypeScript', 'Tailwind CSS', 'Supabase', 'GraphQL', 'Vite'],
     github: 'https://github.com/SanaHameed2/MegaMart',
     live: 'https://megamart-eta.vercel.app/',
+    audit: 'https://github.com/SanaHameed2/MegaMart/blob/master/docs/SECURITY_AUDIT.md',
+    featured: true,
   },
   // 4. GETITMART
   {
@@ -169,7 +186,11 @@ export function Projects() {
     transition: { duration: reduceMotion ? 0 : 0.4, delay },
   });
 
-  const handleProjectClick = (projectName: string, projectId: string, type: 'live' | 'github' | 'card') => {
+  const handleProjectClick = (
+    projectName: string,
+    projectId: string,
+    type: 'live' | 'github' | 'audit' | 'card'
+  ) => {
     trackEvent('project_click', {
       project_name: projectName,
       project_id: projectId,
@@ -304,11 +325,12 @@ export function Projects() {
             key={p.title}
             className="group relative rounded-card border border-border bg-surface/40 p-6 transition-colors duration-DEFAULT hover:border-border-hover hover:bg-surface/60"
           >
-            {i === 0 && filter === 'all' && (
+            {/* Featured badge — first project OR flagged as featured */}
+            {(i === 0 && filter === 'all') || p.featured ? (
               <span className="absolute right-4 top-4 z-10 rounded-full bg-primary px-2.5 py-1 text-xs font-semibold text-white shadow-md">
                 Featured
               </span>
-            )}
+            ) : null}
 
             <div className="mb-4 aspect-video overflow-hidden rounded-2xl bg-surface">
               <ProjectImage src={p.image} alt={`${p.title} preview`} className="h-full w-full object-cover" />
@@ -320,16 +342,18 @@ export function Projects() {
                 <span className="text-xs uppercase tracking-widest text-neutral-400">{p.year}</span>
               </div>
               <div className="flex shrink-0 gap-2">
-                <a
-                  href={p.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View ${p.title} live demo`}
-                  onClick={() => handleProjectClick(p.title, p.id, 'live')}
-                  className="inline-flex items-center gap-1 rounded-full bg-primary px-4 py-2 text-xs font-medium text-white transition-colors duration-DEFAULT hover:bg-primary-hover"
-                >
-                  <Eye size={14} aria-hidden="true" /> Demo
-                </a>
+                {p.live && (
+                  <a
+                    href={p.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${p.title} live demo`}
+                    onClick={() => handleProjectClick(p.title, p.id, 'live')}
+                    className="inline-flex items-center gap-1 rounded-full bg-primary px-4 py-2 text-xs font-medium text-white transition-colors duration-DEFAULT hover:bg-primary-hover"
+                  >
+                    <Eye size={14} aria-hidden="true" /> Demo
+                  </a>
+                )}
                 {p.github && (
                   <a
                     href={p.github}
@@ -340,6 +364,19 @@ export function Projects() {
                     className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-xs text-neutral-200 transition-colors duration-DEFAULT hover:border-border-hover hover:text-neutral-50"
                   >
                     <Github size={14} aria-hidden="true" />
+                  </a>
+                )}
+                {p.audit && (
+                  <a
+                    href={p.audit}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${p.title} security audit report`}
+                    onClick={() => handleProjectClick(p.title, p.id, 'audit')}
+                    className="inline-flex items-center gap-1 rounded-full border border-success/40 bg-success/10 px-3 py-2 text-xs font-medium text-success transition-colors duration-DEFAULT hover:border-success hover:bg-success/20"
+                  >
+                    <Shield size={14} aria-hidden="true" />
+                    <span className="hidden sm:inline">Audit</span>
                   </a>
                 )}
               </div>
