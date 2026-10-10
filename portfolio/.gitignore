@@ -34,3 +34,7 @@ coverage/
 .env*
 .vercel 
 .vercel 
+
+# Personal marketing site — not part of portfolio
+apps/marketing/
+apps/marketing.zip
