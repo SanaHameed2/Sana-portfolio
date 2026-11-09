@@ -1,91 +1,80 @@
-# Sana Hameed — Portfolio
+# Hi there, I'm Sana Hameed! 👋
 
-Personal portfolio site (`apps/web`) and its contact-form API (`apps/api`),
-managed as an npm workspaces monorepo.
+**Full-Stack Developer | React & TypeScript Specialist | UI/UX Enthusiast**
 
-## Structure
+I engineer scalable, production-ready web applications that bridge the gap between premium UI design and robust backend architecture. 
 
-```
-apps/
-  web/      React 18 + TypeScript + Vite + Tailwind — the portfolio site
-  api/      Express — sends contact-form submissions via email
-packages/
-  config/   Shared Tailwind preset, ESLint config, Prettier config, base tsconfig
-  shared/   Cross-app constants (social links, nav links) — single source of truth
-scripts/    One-off/regeneratable asset scripts (e.g. OG image generation)
-```
+With a background in UI/UX and graphic design, I don't just write code—I build intuitive digital experiences. From designing in Figma to deploying on Vercel, I handle the full product lifecycle.
 
-One lockfile (`package-lock.json`) lives at the repo root and covers every
-workspace. Don't add per-app lockfiles.
+- 🌐 **Portfolio:** [sana-portfolio-weld.vercel.app](https://sana-portfolio-weld.vercel.app)
+- 💻 **GitHub:** [github.com/SanaHameed2](https://github.com/SanaHameed2)
+- 💼 **LinkedIn:** [Your LinkedIn URL]
+- 📫 **Email:** [Your Email]
 
-## Setup
+---
 
-```bash
-npm install         # installs all workspaces from the root
-```
+## 🚀 What I Focus On
 
-Node >=18 and npm >=9 are required (see `engines` in package.json).
+I love building web applications that don't just look good, but perform exceptionally well. My expertise lies in:
+- **Modern Frontend:** Building interactive, highly responsive UIs using React, TypeScript, and Tailwind CSS.
+- **Scalable Backends:** Designing PostgreSQL schemas, writing secure REST APIs, and managing serverless architecture with Supabase.
+- **Performance & SEO:** Optimizing Core Web Vitals, code-splitting, and ensuring top-tier Lighthouse scores.
+- **AI-Assisted Workflows:** Leveraging tools like Cursor AI and Claude to accelerate development and maintain clean, refactored code.
 
-## Development
+---
 
-```bash
-npm run dev          # starts the web app (http://localhost:5173)
-npm run dev:api       # starts the API server (http://localhost:5000)
-```
+## 🛠️ Tech Stack
 
-The web app expects the API at `/api/contact`. In local dev, either:
-- run `apps/api` separately and set `VITE_API_URL` in `apps/web/.env.local`, or
-- proxy `/api` to `localhost:5000` in `apps/web/vite.config.ts` if you want a
-  single dev origin.
+**Frontend:**
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 
-## Environment variables
+**Backend & Databases:**
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-**`apps/api/.env`** (copy from `apps/api/.env.example`):
+**Design & Tools:**
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-| Variable | Purpose |
-|---|---|
-| `PORT` | API server port (default 5000) |
-| `ALLOWED_ORIGINS` | Comma-separated list of origins allowed by CORS |
-| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` | SMTP credentials for sending contact-form emails |
-| `SMTP_FROM` | From-address for outgoing mail (defaults to `SMTP_USER`) |
-| `CONTACT_TO_EMAIL` | Where contact-form submissions are delivered |
+---
 
-If SMTP vars are unset, the API logs submissions to the console instead of
-emailing them — useful for local development without real credentials.
+## 💼 Featured Projects
 
-**`apps/web`** (optional, `.env.local`):
+### 💳 Pennywise (Fintech Web App)
+A production-ready digital banking platform built to solve local fintech challenges. Features real-time database notifications, English/Urdu RTL localization, secure OTP transfers, and full PWA installability.
+- **Tech:** React, TypeScript, Supabase, Recharts, Tailwind CSS
+- **Live:** [pennywise-fintech-app.vercel.app](https://pennywise-fintech-app.vercel.app/) 
+- **Code:** [GitHub Repository](https://github.com/SanaHameed2/pennywise-fintech-app)
 
-| Variable | Purpose |
-|---|---|
-| `VITE_API_URL` | Overrides the default `/api/contact` target |
-| `VITE_GA_MEASUREMENT_ID` | Enables Google Analytics if set; omitted entirely otherwise |
+### 🛒 MegaMart (E-Commerce Platform)
+Production-grade e-commerce platform featuring multi-filter search, cart workflows, and verified-purchase reviews. Conducted comprehensive security audits and optimized for enterprise-level data protection.
+- **Tech:** React 19, GraphQL, Supabase, Vite
+- **Live:** [megamart-eta.vercel.app](https://megamart-eta.vercel.app/) | **Code:** [GitHub](https://github.com/SanaHameed2/MegaMart)
 
-## Build & verification
+### 🛍️ Getit (E-commerce Marketplace)
+A scalable digital marketplace featuring dynamic inventory routing, secure user state management, and Stripe integration for seamless checkout flows.
+- **Tech:** React, Supabase, Stripe, TanStack Query
+- **Code:** [GitHub](https://github.com/SanaHameed2/Getit)
 
-```bash
-npm run build        # typecheck + build apps/web, syntax-check apps/api
-npm run typecheck     # apps/web only (strict TypeScript)
-npm run lint          # ESLint (apps/web) + syntax check (apps/api)
-npm run format        # Prettier --write across apps/**
-npm run format:check  # Prettier --check (CI-friendly)
-```
+### 🏢 EVA TECH (Brand Architecture)
+Complete brand identity design and frontend engineering for a UK-based tech repair platform. Optimized for SEO and responsive service layouts.
+- **Live:** [evatechuk.com](https://www.evatechuk.com/)
 
-## Deployment
+---
 
-- **Web**: static build (`apps/web/dist`) deployed to Vercel. Build command:
-  `npm run build --workspace=apps/web`; output directory: `apps/web/dist`.
-- **API**: deployed separately (e.g. as a Vercel serverless function or a
-  small Node host). Set the env vars above on whatever platform runs it, and
-  set `ALLOWED_ORIGINS` to the deployed web origin so CORS isn't wide open.
+## 🌱 Currently
 
-## Regenerating the OG image
+- 🔭 I’m currently working on improving my open-source presence and building more full-stack AI-integrated tools.
+- 🌱 I’m currently learning **Advanced System Design** and **Data Engineering**.
+- 💬 Ask me about **React, Supabase, UI/UX, and PWA development**.
 
-`scripts/generate-og-image.cjs` renders `apps/web/public/og-image.png` from
-an SVG built with the same design tokens as the site (see
-`packages/config/tailwind-preset.cjs`). It isn't a runtime dependency —
-`sharp` is installed on demand:
+---
 
-```bash
-npm install --no-save sharp
-node scripts/generate-og-image.cjs
-```
+*“Code is not just about making things work; it's about making them work beautifully.”*
