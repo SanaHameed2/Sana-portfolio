@@ -65,9 +65,10 @@ const projects: Project[] = [
     category: 'fintech',
     description:
       'Premium banking workspace featuring glassmorphic UI, real-time transaction tracking, virtual card management, and secure Supabase database authentication.',
-    image: '/images/pennywise.png',
+    image: '/images/Pennywise-Dark Finance-Dashboard.png',
     tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase'],
     live: 'https://pennywise-fintech-app.vercel.app/',
+    github: 'https://github.com/SanaHameed2/pennywise-fintech-app',
   },
   // 3. MEGAMART
   {
