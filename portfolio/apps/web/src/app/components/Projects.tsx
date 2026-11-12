@@ -1,6 +1,6 @@
 // src/components/Projects.tsx
 import { motion, useReducedMotion } from 'framer-motion';
-import { ExternalLink, Github, Eye, Check, Shield } from 'lucide-react';
+import { ExternalLink, Github, Eye, Check, Shield, BookOpen } from 'lucide-react'; // ✅ BookOpen import
 import { useState, useEffect, useId } from 'react';
 import { useAnalyticsContext } from '../../context/AnalyticsContext';
 
@@ -63,10 +63,11 @@ const projects: Project[] = [
     title: 'Pennywise',
     year: '2025 · Full-Stack Fintech',
     category: 'fintech',
+    // ✅ Description Updated
     description:
-      'Premium banking workspace featuring glassmorphic UI, real-time transaction tracking, virtual card management, and secure Supabase database authentication.',
+      'Production-grade fintech app featuring secure OTP transfers, PWA offline support, English/Urdu RTL localization, real-time notifications, and automated E2E testing via Playwright & GitHub Actions.',
     image: '/images/Pennywise-Dark Finance-Dashboard.png',
-    tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+    tags: ['React 18', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Playwright', 'CI/CD'],
     live: 'https://pennywise-fintech-app.vercel.app/',
     github: 'https://github.com/SanaHameed2/pennywise-fintech-app',
   },
@@ -172,7 +173,8 @@ function ProjectImage({ src, alt, className }: { src: string; alt: string; class
   );
 }
 
-export function Projects() {
+// ✅ Props add 
+export function Projects({ onOpenCaseStudy }: { onOpenCaseStudy?: () => void }) {
   const [filter, setFilter] = useState('all');
   const reduceMotion = useReducedMotion();
   const countId = useId();
@@ -190,7 +192,7 @@ export function Projects() {
   const handleProjectClick = (
     projectName: string,
     projectId: string,
-    type: 'live' | 'github' | 'audit' | 'card'
+    type: 'live' | 'github' | 'audit' | 'card' | 'case_study'
   ) => {
     trackEvent('project_click', {
       project_name: projectName,
@@ -278,7 +280,7 @@ export function Projects() {
         </div>
       </div>
 
-      {/* Updated Stats Section - 40+ Graphic Design & Web Clients */}
+      {/* Updated Stats Section
       <motion.div
         {...fadeUp()}
         className="mb-16 mt-16 grid grid-cols-1 gap-8 rounded-card border border-border bg-surface/60 p-8 md:grid-cols-3"
@@ -342,7 +344,22 @@ export function Projects() {
                 <h3 className="text-card-title text-neutral-50">{p.title}</h3>
                 <span className="text-xs uppercase tracking-widest text-neutral-400">{p.year}</span>
               </div>
+              
               <div className="flex shrink-0 gap-2">
+                {/* ✅ Case Study Button (Sirf Pennywise ke liye) */}
+                {p.id === 'pennywise' && onOpenCaseStudy && (
+                  <button
+                    onClick={() => {
+                      handleProjectClick(p.title, p.id, 'case_study');
+                      onOpenCaseStudy();
+                    }}
+                    className="inline-flex items-center gap-1 rounded-full bg-primary/10 border border-primary/50 px-3 py-2 text-xs font-bold text-primary transition-colors duration-DEFAULT hover:bg-primary hover:text-white"
+                  >
+                    <BookOpen size={14} aria-hidden="true" /> 
+                    <span className="hidden sm:inline">Case Study</span>
+                  </button>
+                )}
+
                 {p.live && (
                   <a
                     href={p.live}
